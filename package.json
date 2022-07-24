@@ -1,0 +1,107 @@
+{
+  "name": "bloglist",
+  "version": "1.0.0",
+  "description": "Fullstack part 11.20",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "build": "cross-env NODE_ENV=production webpack --mode=production",
+    "lint": "eslint .",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
+    "start:test": "cross-env NODE_ENV=test node index.js",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
+  },
+  "engines": {
+    "node": ">=10.15"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@controllers/(.*)": "<rootDir>/server/controllers/$1",
+      "@middleware/(.*)": "server/middleware/$1",
+      "@util/(.*)": "<rootDir>/server/util/$1",
+      "@root/(.*)": "<rootDir>/$1"
+    }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "author": "Stefan Otajagic",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "axios": "^0.19.2",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "bcryptjs": "^2.4.3",
+    "chokidar": "^3.3.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.0",
+    "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "fibers": "^4.0.2",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^28.1.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^0.9.0",
+    "module-alias": "^2.2.2",
+    "mongoose": "^6.4.6",
+    "prop-types": "^15.8.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^14.3.0",
+    "babel-preset-react-app": "^10.0.1",
+    "cypress": "^10.3.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^26.6.0",
+    "jest-environment-jsdom": "^28.1.3",
+    "nodemon": "^2.0.2",
+    "supertest": "^6.2.4",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*",
+      "client/*",
+      "server/*"
+    ]
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@controllers": "server/controllers",
+    "@middleware": "server/middleware",
+    "@util": "server/util"
+  }
+}

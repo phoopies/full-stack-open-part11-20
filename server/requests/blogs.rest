@@ -1,0 +1,41 @@
+@localUrl = http://localhost:3000/api
+@herokuUrl = idk
+
+@baseUrl = {{localUrl}}
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNzc3MiLCJpZCI6IjYyZGNmMTU2ODQ1YjVhZjg5MTg3Y2Q4NCIsImlhdCI6MTY1ODY0Njg3MX0.s-mj464BnCzRmhp-CeOD7lO8xHDpR8KDO07GHX6m_D0
+
+@someId = 6294cfd536ee37f0bc1d95b5
+## Get all blogs, needs token which kinda sucks
+
+GET {{baseUrl}}/blogs
+Authorization: bearer {{token}}
+
+### Create new blog
+
+POST {{baseUrl}}/blogs
+Content-Type: application/json
+Authorization: bearer {{token}}
+
+{
+    "title": "String",
+    "author": "String",
+    "url": "String",
+    "likes": 1
+}
+
+### Add a comment
+
+POST {{baseUrl}}/blogs/{{someId}}/comments
+Content-Type: application/json
+
+{
+    "comment": "This is a comment!"
+}
+
+
+### Delete a blog
+
+DELETE {{baseUrl}}/blogs/{{someId}}
+Content-Type: application/json
+Authorization: bearer {{token}}
