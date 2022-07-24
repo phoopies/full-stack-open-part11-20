@@ -1,3 +1,4 @@
+require('dotenv').config()
 const common = require('../../config/common')
 
 const PORT = process.env.PORT || 8000
