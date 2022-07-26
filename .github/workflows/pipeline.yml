@@ -16,6 +16,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - name: create .env
+        run: |
+          touch .env
+          echo TEST_MONDODB_URI=${{ secrets.TEST_MONDODB_URI }} >> .env
+          echo DB_PASSWORD=${{secrets.DB_PASSWORD}} >> .env
+          echo JWT_SECRET=${{secrets.JWT_SECRET}} >> .env
       - name: npm install
         run: npm install
       - name: lint
@@ -42,8 +48,6 @@ jobs:
 #           healthcheck: "https://${{env.HEROKU_APP_NAME}}.herokuapp.com/health"
 #           checkstring: "ok"
 #           rollbackonhealthcheckfailed: true
-#         env:
-#           HEROKU_APP_NAME: fullstack-pokedex23425
 
 #   tag_release:
 #     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
