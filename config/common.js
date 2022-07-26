@@ -3,7 +3,7 @@
  */
 require('dotenv').config()
 
-const { PORT } = process.env
+const { PORT } = process.env || 8000
 const { DB_PASSWORD } = process.env
 const { DB_NAME } = process.env
 const DB_URL = process.env.NODE_ENV === 'test'

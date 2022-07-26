@@ -1,4 +1,5 @@
 /* eslint-disable jest/expect-expect */
+
 const user = {
   name: 'tester',
   username: 'u_tester',
@@ -7,9 +8,9 @@ const user = {
 
 describe('Blog app', () => {
   beforeEach(() => {
-    cy.request('POST', 'http://localhost:3000/api/testing/reset')
-    cy.request('POST', 'http://localhost:3000/api/users/', user)
-    cy.visit('http://localhost:3000')
+    cy.request('POST', '/api/testing/reset')
+    cy.request('POST', '/api/users/', user)
+    cy.visit('/')
   })
 
   it('Login form is shown', () => {
@@ -133,7 +134,7 @@ describe('Blog app', () => {
           username: 'temp',
           password: 'secret',
         }
-        cy.request('POST', 'http://localhost:3000/api/users/', tempUser)
+        cy.request('POST', '/api/users/', tempUser)
         cy.login(tempUser)
 
         cy.contains('A better blog')
