@@ -9,10 +9,13 @@ const Blog = require('../models/blog')
 const User = require('../models/user')
 const helper = require('./helper')
 
+const { DB_URL } = require('../util/common')
+
 // Better way?
 let token
 
 beforeEach(async () => {
+  console.log(DB_URL)
   await Blog.deleteMany({})
   await Blog.insertMany(helper.blogs)
 
