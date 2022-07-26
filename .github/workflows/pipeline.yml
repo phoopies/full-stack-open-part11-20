@@ -36,18 +36,20 @@ jobs:
           browser: chrome
           command: npm run test:e2e
           start: npm run start:test
-          wait-on: http://localhost:3000
-#       - name: Deploy to Heroku
-#         if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
-#         uses: akhileshns/heroku-deploy@v3.12.12
-#         with:
-#           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-#           heroku_app_name: $HEROKU_APP_NAME
-#           heroku_email: sotajagic@gmail.com
-#           delay: 15
-#           healthcheck: "https://${{env.HEROKU_APP_NAME}}.herokuapp.com/health"
-#           checkstring: "ok"
-#           rollbackonhealthcheckfailed: true
+          wait-on: http://localhost:8000
+      - name: Deploy to Heroku
+        if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: $HEROKU_APP_NAME
+          heroku_email: sotajagic@gmail.com
+          delay: 15
+          healthcheck: "https://${{env.HEROKU_APP_NAME}}.herokuapp.com/health"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
+        env:
+          HEROKU_APP_NAME: blog-app-234523
 
 #   tag_release:
 #     if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
