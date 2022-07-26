@@ -1,15 +1,15 @@
-# name: Periodic
+name: Periodic
 
-# on:
-#   schedule:
-#     - cron:  '0 18,6 * * *'
+on:
+  schedule:
+    - cron:  '0 18,6 * * *'
 
-# jobs:
-#   healthcheck:
-#     runs-on: ubuntu-20.04
-#     steps:
-#       - name: Check the deployed service URL
-#         uses: jtalk/url-health-check-action@v2
-#         with:
-#           url: https://fullstack-pokedex23425.herokuapp.com|https://fullstack-pokedex23425.herokuapp.com/health
-#           max-attempts: 3
+jobs:
+  healthcheck:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v2
+        with:
+          url: https://fullstack-pokedex23425.herokuapp.com|https://fullstack-pokedex23425.herokuapp.com/health
+          max-attempts: 3
