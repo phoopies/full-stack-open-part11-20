@@ -15,6 +15,10 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 
+app.get('/version', (req, res) => {
+  res.send('v0.0.2')
+})
+
 /**
  *  Use "hot loading" in backend
  */
