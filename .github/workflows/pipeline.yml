@@ -19,7 +19,7 @@ jobs:
       - name: create .env
         run: |
           touch .env
-          echo TEST_MONDODB_URI=${{ secrets.TEST_MONDODB_URI }} >> .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
           echo DB_PASSWORD=${{secrets.DB_PASSWORD}} >> .env
           echo JWT_SECRET=${{secrets.JWT_SECRET}} >> .env
       - name: npm install
